@@ -44,8 +44,8 @@ declare var componentHandler: any;
       <div class="mdl-card__title mdl-card--expand">
         <h4>
           {{stock.symbol.toUpperCase()}}<br />
-          \${{stock.lastTradePriceOnly}}<br />
-          \${{stock.change}}
+          {{stock.lastTradePriceOnly | currency:'USD':true}}<br />
+          {{stock.change | currency:'USD':true}}
         </h4>
       </div>
       <div class="mdl-card__actions mdl-card--border">
