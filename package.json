@@ -21,13 +21,15 @@
   "homepage": "https://github.com/angular-in-action/stock-tracker#readme",
   "dependencies": {
     "angular2": "^2.0.0-alpha.31",
+    "express": "^4.13.1",
     "reflect-metadata": "^0.1.0",
     "systemjs": "^0.18.4",
-    "zone.js": "^0.5.2",
-    "express": "^4.13.1"
+    "yahoo-finance": "^0.2.11",
+    "zone.js": "^0.5.2"
   },
   "devDependencies": {
     "del": "^1.2.0",
+    "eslint": "^0.24.1",
     "gulp": "^3.9.0",
     "gulp-changed": "^1.2.1",
     "gulp-sourcemaps": "^1.5.2",
@@ -36,6 +38,6 @@
     "gulp-util": "^3.0.6",
     "run-sequence": "^1.1.1",
     "tsd": "^0.6.3",
-    "typescript": "^1.5.0-beta"
+    "typescript": "^1.5.0"
   }
 }

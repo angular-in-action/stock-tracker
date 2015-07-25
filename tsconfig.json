@@ -8,6 +8,7 @@
         "removeComments": true,
         "noLib": false,
         "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "sourceMap": true,
         "outDir": "dist"
     },
@@ -18,6 +19,8 @@
     "files": [
         "typings/tsd.d.ts",
         "client/bootstrap.ts",
-        "client/components/app.ts"
+        "client/components/app.ts",
+        "client/components/summary.ts",
+        "client/services/quotes.ts"
     ]
 }
