@@ -19,7 +19,9 @@
     "files": [
         "typings/tsd.d.ts",
         "client/bootstrap.ts",
+        "client/components/add.ts",
         "client/components/app.ts",
+        "client/components/dashboard.ts",
         "client/components/summary.ts",
         "client/services/quotes.ts"
     ]
