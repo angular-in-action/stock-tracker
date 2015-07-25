@@ -13,10 +13,8 @@ declare var componentHandler: any;
   template: `
   <style>
     .demo-card-event.mdl-card {
-      width: 256px;
-      height: 256px;
-      /*background: #3E4EB8;*/
-      margin: 20px;
+      width: 100%;
+      height: 250px;
     }
     .demo-card-event > .mdl-card__actions {
       border-color: rgba(255, 255, 255, 0.2);
@@ -45,7 +43,7 @@ declare var componentHandler: any;
         <h4>
           {{stock.symbol.toUpperCase()}}<br />
           {{stock.lastTradePriceOnly | currency:'USD':true}}<br />
-          {{stock.change | currency:'USD':true}}
+          {{stock.change | currency:'USD':true}} {{stock.changeInPercent | percent}}
         </h4>
       </div>
       <div class="mdl-card__actions mdl-card--border">
@@ -57,7 +55,6 @@ declare var componentHandler: any;
   </div>`
 })
 export class Summary {
-
   constructor() {
     setTimeout(function() {
       componentHandler.upgradeAllRegistered();

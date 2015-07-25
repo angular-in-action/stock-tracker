@@ -18,10 +18,10 @@ import {Http, httpInjectables} from 'angular2/http';
       </div>
     </header>
     <main class="mdl-layout__content" style="padding: 20px;">
-      <div style="display: table-row">
-      <div *ng-for="#stock of stocks" style="display: table-cell;">
-        <summary [symbol]="stock"></summary>
-      </div>
+      <div class="demo-grid-1 mdl-grid">
+        <div class="mdl-cell mdl-cell--3-col" *ng-for="#stock of stocks">
+          <summary [symbol]="stock"></summary>
+        </div>
       </div>
     </main>
   </div>
