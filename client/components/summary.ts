@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, Directive, coreDirectives} from 'angular2/angular2';
+import {Component, View, coreDirectives} from 'angular2/angular2';
 
 declare var componentHandler: any;
 
