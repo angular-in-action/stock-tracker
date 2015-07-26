@@ -14,7 +14,11 @@ declare var componentHandler: any;
 })
 @View({
   directives: [coreDirectives, Summary],
-  template: `<div class="demo-grid-1 mdl-grid">
+  template: `
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col" *ng-if="!stocks" style="text-align: center;">
+    <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+  </div>
   <div class="mdl-cell mdl-cell--3-col" *ng-for="#stock of stocks">
     <summary [symbol]="stock"></summary>
   </div>
@@ -25,8 +29,12 @@ export class Dashboard {
   symbols: Array<string>;
 
   constructor(http: Http) {
+    setTimeout(function() {
+      componentHandler.upgradeAllRegistered();
+    })
+
     this.symbols = ['aapl','ebay','fb','goog','amzn'];
-    this.stocks = this.symbols.map(symbol => {symbol: symbol});
+
     http.get('/api?symbols=' + this.symbols.join())
       .toRx()
       .map(res => res.json())
