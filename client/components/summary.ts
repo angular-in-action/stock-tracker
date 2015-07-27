@@ -34,7 +34,7 @@ import {RouterLink, routerInjectables} from 'angular2/router';
       </h4>
     </div>
     <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored" style="color: #fff;" [router-link]="['/stocks', {symbol: stock.symbol}]">
+      <a class="mdl-button mdl-button--colored" style="color: #fff;" [router-link]="['/stock', {symbol: stock.symbol}]">
         View {{stock.name}}
       </a>
     </div>

@@ -35,7 +35,7 @@ export class Dashboard {
 
     this.symbols = ['aapl','ebay','fb','goog','amzn'];
 
-    http.get('/api?symbols=' + this.symbols.join())
+    http.get('/api/snapshot?symbols=' + this.symbols.join())
       .toRx()
       .map(res => res.json())
       .subscribe(stocks => this.stocks = stocks);

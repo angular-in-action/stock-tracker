@@ -10,7 +10,7 @@ import {Stock} from './stock';
 @RouteConfig([
   {path: '/', as: 'dashboard', component: Dashboard},
   {path: '/add', as: 'add', component: Add},
-  {path: '/stocks/:symbol', as: 'stocks', component: Stock}
+  {path: '/stocks/:symbol', as: 'stock', component: Stock}
 ])
 
 @Component({
