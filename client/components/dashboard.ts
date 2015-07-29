@@ -14,6 +14,7 @@ import {StocksService} from '../services/stocks';
 @View({
   directives: [coreDirectives, Summary],
   template: `
+<h1>
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--3-col" *ng-for="#stock of stocks">
     <summary [symbol]="stock"></summary>
@@ -24,9 +25,9 @@ export class Dashboard {
   stocks: any;
   symbols: Array<string>;
 
-  constructor(http: Http, stocks: StocksService) {
+  constructor(http: Http, service: StocksService) {
 
-    this.symbols = stocks.get();
+    this.symbols = service.get();
 
     if (this.symbols) {
       http.get('/api/snapshot?symbols=' + this.symbols.join())

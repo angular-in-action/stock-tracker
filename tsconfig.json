@@ -19,10 +19,10 @@
     "files": [
         "typings/tsd.d.ts",
         "client/bootstrap.ts",
-        "client/components/add.ts",
         "client/components/app.ts",
         "client/components/bar-chart.ts",
         "client/components/dashboard.ts",
+        "client/components/manage.ts",
         "client/components/stock.ts",
         "client/components/summary.ts",
         "client/services/stocks.ts"

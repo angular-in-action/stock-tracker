@@ -1,32 +1,20 @@
 /// <reference path="../../typings/tsd.d.ts"/>
 
-let key = 'stocks';
+let stocks: Array<string> = ['AAPL', 'GOOG', 'FB', 'AMZN', 'TWTR'];
 
 export class StocksService {
 
   get() {
-    let value = localStorage.getItem(key);
-    try {
-      value = JSON.parse(value);
-    } catch (err) {
-      value = [];
-    }
-    return value;
-  }
-
-  set(value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    return stocks;
   }
 
   add(stock) {
-    let value = this.get();
-    value.push(stock);
-    this.set(value);
+    stocks.push(stock);
+    return this.get();
   }
 
   remove(stock) {
-    let value = this.get();
-    value.splice(value.indexOf(stock), 1);
-    this.set(value);
+    stocks.splice(stocks.indexOf(stock), 1);
+    return this.get();
   }
 }
