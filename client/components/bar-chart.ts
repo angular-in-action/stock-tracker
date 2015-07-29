@@ -11,7 +11,7 @@ import {Component, View, coreDirectives, NgStyle} from 'angular2/angular2';
   template: `
 <style>
 .bar {
-  width: 0.27%;
+  width: 0.38%;
   background: #999;
   display: inline-block;
   border-top: 1px solid #333;

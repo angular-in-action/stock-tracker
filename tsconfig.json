@@ -25,6 +25,6 @@
         "client/components/dashboard.ts",
         "client/components/stock.ts",
         "client/components/summary.ts",
-        "client/services/quotes.ts"
+        "client/services/stocks.ts"
     ]
 }
