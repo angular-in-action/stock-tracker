@@ -5,12 +5,10 @@ import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2
 
 import {Dashboard} from './dashboard';
 import {Manage} from './manage';
-import {Stock} from './stock';
 
 @RouteConfig([
   {path: '/', as: 'dashboard', component: Dashboard},
-  {path: '/manage', as: 'manage', component: Manage},
-  {path: '/stocks/:symbol', as: 'stock', component: Stock}
+  {path: '/manage', as: 'manage', component: Manage}
 ])
 
 @Component({

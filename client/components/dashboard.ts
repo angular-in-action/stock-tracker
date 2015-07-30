@@ -14,8 +14,8 @@ import {StocksService} from '../services/stocks';
 @View({
   directives: [coreDirectives, Summary],
   template: `
-<h1>
 <div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col" *ng-if="!stocks" style="text-align: center;">Loading</div>
   <div class="mdl-cell mdl-cell--3-col" *ng-for="#stock of stocks">
     <summary [symbol]="stock"></summary>
   </div>
