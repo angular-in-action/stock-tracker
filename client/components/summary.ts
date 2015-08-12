@@ -15,16 +15,19 @@ import {RouterLink, routerInjectables} from 'angular2/router';
   directives: [coreDirectives, RouterLink, CSSClass],
   template: `
 <style>
-  .mdl-card.increase {
+  .stock-card.mdl-card {
+    background: #333;
+  }
+  .stock-card.mdl-card.increase {
     background: #558B2F;
     color: #fff;
   }
-  .mdl-card.decrease {
+  .stock-card.mdl-card.decrease {
     background: #C62828;
     color: #fff;
   }
 </style>
-<div class="mdl-card mdl-shadow--2dp" [class]="getClass()" style="width: 100%;">
+<div class="mdl-card stock-card mdl-shadow--2dp" [class]="{increase: isPositive(), decrease: isNegative()}" style="width: 100%;">
   <span *ng-if="stock">
     <div class="mdl-card__title mdl-card--expand">
       <h4 style="color: #fff; margin-top: 0">
@@ -45,15 +48,19 @@ import {RouterLink, routerInjectables} from 'angular2/router';
 export class Summary {
   stock: any;
 
-  getClass() {
-    if (!this.stock) {
-      return;
+  isNegative() {
+    if (!this.stock || this.stock.change >= 0) {
+      return false;
     }
 
-    if (this.stock.change > 0) {
-      return 'increase';
-    } else if (this.stock.change < 0) {
-      return 'decrease';
+    return true;
+  }
+
+  isPositive() {
+    if (!this.stock || this.stock.change <= 0) {
+      return false;
     }
+
+    return true;
   }
 }
