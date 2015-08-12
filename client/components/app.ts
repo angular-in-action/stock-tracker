@@ -4,13 +4,11 @@ import {Component, View, coreDirectives} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2/router';
 
 import {Dashboard} from './dashboard';
-import {Add} from './add';
-import {Stock} from './stock';
+import {Manage} from './manage';
 
 @RouteConfig([
   {path: '/', as: 'dashboard', component: Dashboard},
-  {path: '/add', as: 'add', component: Add},
-  {path: '/stocks/:symbol', as: 'stock', component: Stock}
+  {path: '/manage', as: 'manage', component: Manage}
 ])
 
 @Component({
@@ -27,7 +25,7 @@ import {Stock} from './stock';
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation mdl-layout--large-screen-only">
           <a class="mdl-navigation__link" [router-link]="['/dashboard']" href="/">Dashboard</a>
-          <a class="mdl-navigation__link" [router-link]="['/add']" href="/add">Add Stock</a>
+          <a class="mdl-navigation__link" [router-link]="['/manage']" href="/manage">Manage</a>
         </nav>
       </div>
     </header>
@@ -35,7 +33,7 @@ import {Stock} from './stock';
       <span class="mdl-layout-title">Stock Tracker</span>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" [router-link]="['/dashboard']" href="/">Dashboard</a>
-        <a class="mdl-navigation__link" [router-link]="['/add']" href="/add">Add Stock</a>
+        <a class="mdl-navigation__link" [router-link]="['/manage']" href="/manage">Manage</a>
       </nav>
     </div>
     <main class="mdl-layout__content" style="padding: 20px;">

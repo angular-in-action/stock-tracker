@@ -4,21 +4,18 @@ import {Component, View, Directive, coreDirectives} from 'angular2/angular2';
 import {Http, httpInjectables} from 'angular2/http';
 
 import {Summary} from './summary';
-
-declare var componentHandler: any;
+import {StocksService} from '../services/stocks';
 
 @Component({
   selector: 'dashboard',
   properties: ['stock: symbol'],
-  viewInjector: [httpInjectables]
+  viewInjector: [httpInjectables, StocksService]
 })
 @View({
   directives: [coreDirectives, Summary],
   template: `
 <div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--12-col" *ng-if="!stocks" style="text-align: center;">
-    <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
-  </div>
+  <div class="mdl-cell mdl-cell--12-col" *ng-if="!stocks" style="text-align: center;">Loading</div>
   <div class="mdl-cell mdl-cell--3-col" *ng-for="#stock of stocks">
     <summary [symbol]="stock"></summary>
   </div>
@@ -28,16 +25,15 @@ export class Dashboard {
   stocks: any;
   symbols: Array<string>;
 
-  constructor(http: Http) {
-    setTimeout(function() {
-      componentHandler.upgradeAllRegistered();
-    })
+  constructor(http: Http, service: StocksService) {
 
-    this.symbols = ['aapl','ebay','fb','goog','amzn'];
+    this.symbols = service.get();
 
-    http.get('/api/snapshot?symbols=' + this.symbols.join())
-      .toRx()
-      .map(res => res.json())
-      .subscribe(stocks => this.stocks = stocks);
+    if (this.symbols) {
+      http.get('/api/snapshot?symbols=' + this.symbols.join())
+        .toRx()
+        .map(res => res.json())
+        .subscribe(stocks => this.stocks = stocks);
+    }
   }
 }
